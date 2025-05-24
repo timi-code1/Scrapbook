@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Scrapbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #f0f8ff, #e0f4ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .scrolling-banner {
+      animation: scrollText 15s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Animation for rise + fade */
+    .photo-animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .photo-animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .caption-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .caption-animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #loveLetter {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #1e3a8a; /* a nice blue shade */
+      padding: 1rem;
+      background: #e0f2fe; /* very light baby blue */
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    #apologyLetter {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #1e3a8a; /* a nice blue shade */
+      padding: 1rem;
+      background: #e0f2fe; /* very light baby blue */
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+<!-- Header -->
+<header class="text-center p-8 bg-blue-100 shadow-md">
+  <h1 class="text-4xl font-bold mb-2">Our Love Story 💙</h1>
+  <p class="italic text-lg">A journey through our memories together.</p>
+</header>
+
+<!-- Scrolling Banner -->
+<div class="overflow-hidden bg-blue-200 py-2">
+  <div class="scrolling-banner whitespace-nowrap text-xl font-medium text-blue-800">
+    I love you more than words can say — and I'm grateful for every moment with you 💙
+  </div>
+</div>
+
+<!-- Memories Gallery -->
+<section class="p-8" id="gallery">
+  <h2 class="text-3xl font-semibold text-center mb-6" data-aos="fade-up">My Favourites 📸</h2>
+  <div id="memoryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <!-- JS will insert images here -->
+  </div>
+</section>
+
+<!-- Love Letter -->
+<section class="bg-white p-8 my-10 rounded-2xl shadow-lg mx-4 md:mx-32" data-aos="fade-right">
+  <h2 class="text-3xl font-semibold text-blue-700 mb-4">💌 Love Letter</h2>
+  <div class="text-lg leading-relaxed letter" id="loveLetter">
+    Hey Kenny,<br>
+    I really do love you a lot...
+  </div>
+</section>
+
+<!-- Apology Letter -->
+<section class="bg-blue-50 p-8 my-10 rounded-2xl shadow-lg mx-4 md:mx-32" data-aos="fade-left">
+  <h2 class="text-3xl font-semibold text-blue-600 mb-4">📝 Apology Letter</h2>
+  <div class="text-lg leading-relaxed letter" id="apologyLetter">
+    I'm sorry my love.<br>
+    I know I’m not perfect. But despite this...
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-4 text-sm text-gray-600">
+  Made with 💙 by T
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  const allMemories = [
+    { src: 'your-image-1.jpg', caption: "I love your smileee" },
+    { src: 'your-image-2.jpg', caption: "One of our many creams datess" },
+    { src: 'your-image-3.jpg', caption: "The best sleepover everrrr" },
+    { src: 'your-image-4.jpg', caption: "GCSE seasonnn" },
+    { src: 'your-image-5.jpg', caption: "Nando's where I met your mumm" },
+    { src: 'your-image-6.jpg', caption: "My little cutie" },
+    { src: 'your-image-7.jpg', caption: "My first time at west and..." },
+    { src: 'your-image-8.jpg', caption: "Morning of the sleepoverrr" },
+    { src: 'your-image-9.jpg', caption: "Winter formalll" },
+    { src: 'your-image-10.jpg', caption: "Where we couldn't lock in 😔" },
+    { src: 'your-image-12.jpg', caption: "This one's js tea I can't even explain" },
+    { src: 'your-image-13.jpg', caption: "Face card never declininggg" },
+    { src: 'your-image-14.jpg', caption: "You looking classy and sophisticatedd" },
+    { src: 'your-image-15.jpg', caption: "When you dyed your hair and looked amazing" },
+    { src: 'your-image-16.jpg', caption: "Body absolutely teaaa" },
+    { src: 'your-image-17.jpg', caption: "Birthday photo that I captured of you looking so good!" },
+    { src: 'your-image-11.jpg', caption: "My favourite ft photo everrr" },
+    { src: 'your-image-18.jpg', caption: "The red hair era ateee" },
+    { src: 'your-image-19.jpg', caption: "Fnl where you looked amazing" }
+  ];
+
+  const memoryGrid = document.getElementById('memoryGrid');
+
+  function shuffleAndDisplay() {
+    memoryGrid.innerHTML = '';
+
+    const shuffled = [...allMemories].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 3);
+
+    selected.forEach(({ src, caption }, i) => {
+      const container = document.createElement('div');
+      container.className = 'w-full h-[550px] overflow-hidden rounded-xl shadow-md flex flex-col';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = caption;
+      img.className = 'w-full h-[500px] object-cover transition duration-300 hover:scale-105 photo-animate';
+      img.style.transitionDelay = `${i * 200}ms`; // stagger image fade-in
+
+      const captionDiv = document.createElement('div');
+      captionDiv.textContent = caption;
+      captionDiv.className = 'text-center mt-2 text-sm text-blue-700 font-medium caption-animate';
+      captionDiv.style.transitionDelay = `${i * 200 + 300}ms`; // caption animates slightly after image
+
+      container.appendChild(img);
+      container.appendChild(captionDiv);
+      memoryGrid.appendChild(container);
+
+      // Trigger animations
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          img.classList.add('show');
+          captionDiv.classList.add('show');
+        }, 10);
+      });
+    });
+
+  }
+
+
+  shuffleAndDisplay();
+  setInterval(() => {
+    const currentImgs = document.querySelectorAll('.photo-animate');
+    currentImgs.forEach(img => img.classList.remove('show'));
+    setTimeout(shuffleAndDisplay, 500); // Wait for fade-out
+  }, 10000);
+
+  // Letters
+  const loveLetter = {
+    short: `Hey Kenny,<br>I really do love you a lot...`,
+    full: `Hey Kenny,<br><br>
+        I really do love you a lot. More than anything. But what do I really mean by that?<br><br>
+        Well, I love all of your different features, even the ones you don’t necessarily like yourself. Your voice, your smile, your eyes, face, skin, figure…
+        I could keep listing forever if I’m being completely honest. You’re the most beautiful girl to me and the only one that I truly want. And I mean that
+        wholeheartedly.<br><br>
+        But don’t get the wrong idea. I’ve only given you physical things but that doesn’t mean I only
+        love you because of your appearance. Although your beauty is what initially attracted me and is
+        always going to be appreciated, I love you also because of your character. The way we’re able to
+        show each other affection is a priceless dynamic that I can’t see myself having with anyone else.
+        When we play games like minecraft and roblox together, you’re always concerned about whether or
+        not I’m having fun over your own enjoyment; this is just one example of how you display qualities
+        in our interactions which make me love and admire you more. You always put me first wherever you
+        can, and I don’t take it for granted. I really do appreciate it and if my actions haven’t shown it,
+        then I feel I need to reiterate it here.<br><br>
+        You mean the world to me. I don’t mean to be cliche but it really is true. I really don’t know how I would manage without you because despite all we’ve
+        been through, you’re still my best friend and I love you so much.<br><br>
+        I'm yours forever,<br><em>T</em>`
+  };
+
+  const apologyLetter = {
+    short: `I’m sorry my love.<br>I know I’m not perfect. But despite this...`,
+    full: `I’m sorry my love.<br><br>
+        I know I’m not perfect. But despite this I always try my best to meet your needs and make you happy;
+        It’s almost always at the forefront of my mind.<br><br>
+        I’ve done some unforgivable actions.<br><br>
+        I mess up often, ranging from small things like forgetting to call first to more serious major things
+        where I end up making you feel disrespected. Last year I never gave you the attention you desperately
+        craved from me. In the summer I betrayed you with Christine. I made you feel like a slut at primark
+        all because I was freaked out.<br><br>
+        There’s more stuff I have done which haven’t been named. I have many flaws that are very evident. I’m
+        sorry that I’m not able to be the ideal boyfriend you want me to be all the time. I do try, but some
+        of the things that I have done are just not good enough and so I do apologise.<br><br>
+        I am constantly striving to be the best version of myself for you and our future together. I’ve developed
+        from the start of the relationship to be more respectful and considerate of your feelings. I’m still
+        not perfect yet, but I ask for your patience and faith in the fact that I will become better for you
+        and grow into your person.<br><br>
+        I’ll always love you so much,<br><em>T</em>`
+  };
+
+  let loveExpanded = false;
+  document.getElementById('loveLetter').addEventListener('click', function () {
+    this.innerHTML = loveExpanded ? loveLetter.short : loveLetter.full;
+    loveExpanded = !loveExpanded;
+  });
+
+  let apologyExpanded = false;
+  document.getElementById('apologyLetter').addEventListener('click', function () {
+    this.innerHTML = apologyExpanded ? apologyLetter.short : apologyLetter.full;
+    apologyExpanded = !apologyExpanded;
+  });
+</script>
+</body>
+</html>
