@@ -63,6 +63,54 @@
       border-radius: 0.75rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+    .hidden-text {
+      display: none;
+      white-space: pre-wrap;
+      overflow-y: auto;
+      max-height: none;
+    }
+    #reasonsContainer {
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    #reasonsList {
+      padding-left: 2rem; /* Adjust bullet point positioning */
+    }
+
+    @media (min-width: 768px) {
+      #reasonsContainer {
+        max-width: 80%;
+      }
+    }
+    .tip-container {
+      transition: all 0.3s ease;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .tip-header {
+      transition: background-color 0.3s ease;
+    }
+
+    .tip-header:hover {
+      background-color: #dbeafe !important;
+    }
+
+    .tip-content {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+    }
+
+    .tip-content.expanded {
+      max-height: 1000px; /* Adjust based on your content */
+      padding: 1rem;
+    }
   </style>
 </head>
 <body class="text-gray-800">
@@ -88,21 +136,85 @@
   </div>
 </section>
 
+<!-- 100 Reasons Section -->
+<div class="p-6 flex justify-center">
+  <div class="max-w-2xl w-full"> <!-- Added container with max width -->
+    <h2 class="text-2xl font-bold mb-4 text-center">💙 100 Reasons Why I Love You</h2>
+
+    <div id="reasonsContainer"
+         class="overflow-hidden transition-all duration-500 ease-in-out mx-auto">
+      <ul id="reasonsList" class="list-disc pl-5 space-y-2"></ul>
+    </div>
+
+    <div class="text-center mt-4">
+      <button id="toggleReasonsBtn" class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 transition">
+        Show All 💙
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Love Letter -->
 <section class="bg-white p-8 my-10 rounded-2xl shadow-lg mx-4 md:mx-32" data-aos="fade-right">
-  <h2 class="text-3xl font-semibold text-blue-700 mb-4">💌 Love Letter</h2>
+  <h2 class="text-3xl font-semibold text-blue-700 mb-4">💌 The Letter</h2>
   <div class="text-lg leading-relaxed letter" id="loveLetter">
-    Hey Kenny,<br>
-    I really do love you a lot...
+    The last letters weren't up to scratch<br><br>
+    I dont even need you...
   </div>
 </section>
 
-<!-- Apology Letter -->
-<section class="bg-blue-50 p-8 my-10 rounded-2xl shadow-lg mx-4 md:mx-32" data-aos="fade-left">
-  <h2 class="text-3xl font-semibold text-blue-600 mb-4">📝 Apology Letter</h2>
-  <div class="text-lg leading-relaxed letter" id="apologyLetter">
-    I'm sorry my love.<br>
-    I know I’m not perfect. But despite this...
+<!-- Ways of Dealing With Me Section -->
+<section class="bg-white p-8 my-10 rounded-2xl shadow-lg mx-4 md:mx-32" data-aos="fade-up">
+  <h2 class="text-3xl font-semibold text-blue-700 mb-6">Ways of Dealing With Me 💡</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Tip 1 -->
+    <div class="tip-container">
+      <div class="tip-header bg-blue-100 p-4 rounded-t-lg cursor-pointer flex justify-between items-center">
+        <h3 class="text-xl font-medium text-blue-800">Tip 1</h3>
+        <span class="toggle-icon text-blue-800">+</span>
+      </div>
+      <div class="tip-content hidden-text p-4 font-serif text-blue-900 bg-blue-50 rounded-b-lg">
+        If you’re waiting for me to message and I’m not delivering it’s usually one of three reasons 🦭 -
+        I’m busy with something and can’t text, I’ve misread something from before and think you’re unhappy
+        with me or you’ve left me on opened and i’m struggling to think of ways to keep the conversation
+        alive. If you don’t know which it is and you’re not unhappy with me, js drop me a message and I’ll
+        respond when I see it. I feel like this issue doesn’t come up as often anymore but in the case it
+        does, you know what to do !
+
+      </div>
+    </div>
+
+    <!-- Tip 2 -->
+    <div class="tip-container">
+      <div class="tip-header bg-blue-100 p-4 rounded-t-lg cursor-pointer flex justify-between items-center">
+        <h3 class="text-xl font-medium text-blue-800">Tip 2</h3>
+        <span class="toggle-icon text-blue-800">+</span>
+      </div>
+      <div class="tip-content hidden-text p-4 font-serif text-blue-900 bg-blue-50 rounded-b-lg">
+        I know you’re very observant and notice the smallest changes in my energy that I don’t even mean to
+        give away. In the case where I’m not reciprocating energy enough for you there are a couple of things
+        that could have caused it - sometimes I am just genuinely tired and have had a long day. In this case
+        given enough energy, I will reciprocate it. However, I do know that it is hard to give and not receive
+        so you could ignore me bcs this will probably trigger me to reach out to you, forcing me to give more
+        energy and effort. If it was a situation where I was pissed at you, I would suggest just giving me a
+        bit of space because when i’m left to myself, I will get over it and miss you eventually!
+      </div>
+    </div>
+
+    <!-- Tip 3 -->
+    <div class="tip-container">
+      <div class="tip-header bg-blue-100 p-4 rounded-t-lg cursor-pointer flex justify-between items-center">
+        <h3 class="text-xl font-medium text-blue-800">Tip 3</h3>
+        <span class="toggle-icon text-blue-800">+</span>
+      </div>
+      <div class="tip-content hidden-text p-4 font-serif text-blue-900 bg-blue-50 rounded-b-lg">
+        When you’re angry with me, try not to be rude to me unprovoked. I know this one can be difficult and
+        I seem to overlook it but I still think you should try to remain calm and try to be nice where possible.
+        When you’re rude to me it rlly stings a lot, even if I don’t always show it. It replays in my mind a
+        lot and can make me think very negatively for that period of time. I can usually sleep it off and move
+        on, but it would be better if it was avoided altogether.
+      </div>
+    </div>
   </div>
 </section>
 
@@ -124,8 +236,8 @@
     { src: 'your-image-5.jpg', caption: "Nando's where I met your mumm" },
     { src: 'your-image-6.jpg', caption: "My little cutie" },
     { src: 'your-image-7.jpg', caption: "My first time at west and..." },
-    { src: 'your-image-8.JPG', caption: "Morning of the sleepoverrr" },
-    { src: 'your-image-9.JPG', caption: "Winter formalll" },
+    { src: 'your-image-8.jpg', caption: "Morning of the sleepoverrr" },
+    { src: 'your-image-9.jpg', caption: "Winter formalll" },
     { src: 'your-image-10.JPG', caption: "Where we couldn't lock in 😔" },
     { src: 'your-image-12.jpg', caption: "This one's js tea I can't even explain" },
     { src: 'your-image-13.jpg', caption: "Face card never declininggg" },
@@ -186,45 +298,73 @@
 
   // Letters
   const loveLetter = {
-    short: `Hey Kenny,<br>I really do love you a lot...`,
-    full: `Hey Kenny,<br><br>
-        I really do love you a lot. More than anything. But what do I really mean by that?<br><br>
-        Well, I love all of your different features, even the ones you don’t necessarily like yourself. Your voice, your smile, your eyes, face, skin, figure…
-        I could keep listing forever if I’m being completely honest. You’re the most beautiful girl to me and the only one that I truly want. And I mean that
-        wholeheartedly.<br><br>
-        But don’t get the wrong idea. I’ve only given you physical things but that doesn’t mean I only
-        love you because of your appearance. Although your beauty is what initially attracted me and is
-        always going to be appreciated, I love you also because of your character. The way we’re able to
-        show each other affection is a priceless dynamic that I can’t see myself having with anyone else.
-        When we play games like minecraft and roblox together, you’re always concerned about whether or
-        not I’m having fun over your own enjoyment; this is just one example of how you display qualities
-        in our interactions which make me love and admire you more. You always put me first wherever you
-        can, and I don’t take it for granted. I really do appreciate it and if my actions haven’t shown it,
-        then I feel I need to reiterate it here.<br><br>
-        You mean the world to me. I don’t mean to be cliche but it really is true. I really don’t know how I would manage without you because despite all we’ve
-        been through, you’re still my best friend and I love you so much.<br><br>
-        I'm yours forever,<br><em>T</em>`
+    short: `The last letters weren't up to scratch<br><br>I dont even need you...`,
+    full: `The last letters weren't up to scratch<br><br>
+    I don’t even need you telling me to know that they needed to be
+    better. A common theme while we’ve been together is my lack of understanding what you want from me; I
+    always need to be guided; I never know what you want despite it seeming so obvious to you.<br><br>
+    Because of that I’m sorry. You’ve had to endure me not meeting your standards for a long time and even
+    when you do speak up there seems to be improvement maybe in the short term but it doesn’t seem to
+    really stick. It must be so frustrating to have had to deal with that for such an extended period of
+    time and although I do believe I try to give you what you want, it’s no good if I continuously get it
+    wrong.<br><br>
+    Attention. Something that I give you here and there. But that’s not what you’re looking for. Attention
+    is something that you rely on for security. So it’s not enough for you to get attention from me one day
+    and then not get the same the day after. This is something that made me uncertain when you explained it
+    at first. This was not your fault though; my own insecurities made me spiral in my head and think of the
+    worst instead of focusing on the main issue at hand being my inconsistent attention towards you. With
+    school and all the factors within my life, I do believe it may be a challenge to give you consistent
+    attention if I’m being honest with myself - I do forget some small things. However, I’m not with you
+    because it’s easy, but because I love you so much. I want to make you feel good and appreciated and if
+    that takes consistent attention, that's what you’re going to get. I’ve done it before; when I was in
+    America, I would send good morning snaps everyday despite being with my cousins. I can make time to show
+    you the attention that you need and instead of being doubtful of the future I will show it to you.<br><br>
+    My friends. I know this has been an issue since the start of our relationship. When you were in my snapchat
+    account; that was the first of many occasions where my friends would be able to come between me and you. I
+    care about their opinions. But that should never lead to our business becoming their business. I’ve enabled
+    them to have too much of a say in our relationship because I allow them to be involved in situations between
+    us, as well as taking on board what they say and allowing it to get to me. This has caused you to be
+    embarrassed and for them to have biased opinions on us together. I didn’t intend for this to be the case, but
+    it is as a result of my actions and lack of consideration for you. I know you don’t deserve to have your name
+    and image seen badly by them. I am so sorry. I will fix it whether we get back together or not because the
+    principle of it is a bigger issue in itself.<br><br>
+    I think the underlying issue here is my lack of independence. I don’t have the initiative to make decisions on
+    my own; I’m always seeking validation from someone or asking someone what I should do. I’ve always denied sheep
+    allegations, but upon reflection, if I am being completely honest with myself, I rarely do things solely because
+    it is what I want to do. Even when I do things that I want, It will only be after I have talked to someone who
+    has agreed with me on it. This is a problem for me in a relationship. You were dating me because of me, not
+    because of what my friends or anyone else thinks. I’ve been independent before, but right now, I am more of a
+    reflection of people around me than I am myself. This will take some working on, and I think that even if you
+    haven’t seen it fully, there have been some recent improvements to my mentality. But small improvements aren’t
+    enough. If I want to be with you and make you feel secure, I know that I’ve got to do better and fix up. I
+    promise I’ll do better regardless, but I want you to be able to see the improvement and experience the benefits
+    it will have in our relationship.<br><br>
+    I can’t let you go. I’m not sure about the psychology of it all but I’ve got some sort of attachment to you that
+    can’t just be severed. My love for you is so strong, and all I want to be is enough for you. I do strive to be the
+    best for you. It’s not always obvious. It may seem like I take you for granted. But I don’t. I love you so much. I
+    say it often, a lot more than in the past as I feel my love has grown more and more over time. But I really mean it.
+    It may not be obvious to you through my actions seeming to be contradictory at times. But I don’t ever do anything with
+    the intention of causing you pain. Sometimes I just lack the consideration to see how it would make you feel. It’s an
+    issue that you brought up to me in January. I did become more considerate of you. I do think I’m very considerate. But
+    that means nothing if I can’t be considerate all the time. I’m not perfect. But I can do better. And that is what I will
+    do given the opportunity.<br><br>
+    I love you more than anything. This letter that I’m making despite you telling me it would be a waste of time is evidence
+    of that. I will go above and beyond to prove the extent of my love for you. I love your character. I love you as a person.
+    Hearing you talk about your day is a privilege for me because I am so invested in what you have to say to me. It’s all the
+    small things that I love about you the most. Your mannerisms, your voice, your vocabulary, your scent. I love them because
+    they are what I notice when I remember all of our memories together. I’m always reminiscing of our best memories; our many
+    days out after school, our failed build-a-bear day, the bbq at mine, when you came to mine for our sleepover. I feel so
+    happy thinking about them, but the thought that we may not be able to create any more memories scares me honestly. I get
+    why you feel the need to cut me off and break away from me, but I don’t know if I can do that, and hence I need to make this
+    letter as a last ditch effort to try and show you that I am willing to go above and beyond to put in effort for us. You said
+    that I don’t put in all the effort in the world and I won’t. I have to try and challenge this and prove you wrong.<br><br>
+    I don’t know if I have given you what you were looking for. But I wouldn’t have been able to live with myself knowing I
+    didn’t try at all. I know you feel a need to prove your self respect to yourself and others by leaving me alone. I’ll
+    respect whatever you choose to do. But I am sorry that I did not live up to the standards and expectations that you
+    had for me. You deserve to be with your person, and if I’m not fitting the criteria then you have every right to
+    leave me. I just wish I’m given the opportunity to show you what you wanted.<br><br><em>T</em>`
   };
 
-  const apologyLetter = {
-    short: `I’m sorry my love.<br>I know I’m not perfect. But despite this...`,
-    full: `I’m sorry my love.<br><br>
-        I know I’m not perfect. But despite this I always try my best to meet your needs and make you happy;
-        It’s almost always at the forefront of my mind.<br><br>
-        I’ve done some unforgivable actions.<br><br>
-        I mess up often, ranging from small things like forgetting to call first to more serious major things
-        where I end up making you feel disrespected. Last year I never gave you the attention you desperately
-        craved from me. In the summer I betrayed you with Christine. I made you feel like a slut at primark
-        all because I was freaked out.<br><br>
-        There’s more stuff I have done which haven’t been named. I have many flaws that are very evident. I’m
-        sorry that I’m not able to be the ideal boyfriend you want me to be all the time. I do try, but some
-        of the things that I have done are just not good enough and so I do apologise.<br><br>
-        I am constantly striving to be the best version of myself for you and our future together. I’ve developed
-        from the start of the relationship to be more respectful and considerate of your feelings. I’m still
-        not perfect yet, but I ask for your patience and faith in the fact that I will become better for you
-        and grow into your person.<br><br>
-        I’ll always love you so much,<br><em>T</em>`
-  };
 
   let loveExpanded = false;
   document.getElementById('loveLetter').addEventListener('click', function () {
@@ -232,11 +372,176 @@
     loveExpanded = !loveExpanded;
   });
 
-  let apologyExpanded = false;
-  document.getElementById('apologyLetter').addEventListener('click', function () {
-    this.innerHTML = apologyExpanded ? apologyLetter.short : apologyLetter.full;
-    apologyExpanded = !apologyExpanded;
+  const allReasons = [
+  'You speak in memes that I rarely understand',
+  'Your work ethic - You put a lot more effort than me into studies',
+  'You’re always thinking about our future',
+  'Most tiktoks/reels you send are funny',
+  'We have our shared emojis 🦦',
+  'You’re willing to spend on me even when I don’t want you to',
+  'You give me lots of attention',
+  'You made me rediscover my lost love for chicken and chips !',
+  'You’re my first girlfriend',
+  'You randomly compliment my features',
+  'You call me a pick-me whenever I feel meady',
+  'You’re still somewhat clingy',
+  'The way you talk about things you’re passionate about and get excited to talk about them',
+  'You’re thoughtful',
+  'You put me first',
+  'We can be goofy together',
+  'You accept my weird side',
+  'I’m not awkward around you',
+  'You always try to make me feel better when I’m down',
+  'You took notice of my digestives addiction and got them for me',
+  'You pierced my ears',
+  'You always want to spend time with me',
+  'Your piercings (I like them on you despite you thinking I don’t like piercings!)',
+  'I feel safe when I’m with you',
+  'You made me feel better when I cried in front of you',
+  'Your clear skin',
+  'You’re not afraid to humble me',
+  'You always listen to what I have to say',
+  'We gossip together',
+  'We can have a conversation about anything',
+  'Our facetime calls',
+  'My collection of facetime photos of you',
+  'You send me more snaps now',
+  'You’ve grown in confidence since we’ve been together',
+  'You’re strong and get through all your tough situations',
+  'You stand firm on all your principles',
+  'You don’t play about me',
+  'The way you tell me to lock in',
+  'You call me T',
+  'You make me feel perfect and suppress my insecurities',
+  'Your smile',
+  'You try to invite me wherever you go as much as possible',
+  'I got to meet your family',
+  'You actually play word games with me',
+  'You let me put you onto stuff',
+  'Your face when you’re mad at me (It’s attractive and scary at the same time)',
+  'Despite messing up a lot, you haven’t given up on me',
+  'Your eyes',
+  'You force me to eat some of your food when you’re the only one eating',
+  'You aim high and pursue dentistry',
+  'You motivate me to make money so I’m able to spoil you',
+  'Despite all our arguments, we always come out stronger',
+  'You put me on roblox and Murder Mystery',
+  'We’re able to be intimate together',
+  'Your laugh',
+  'The live singing performances you give me on ft',
+  'Your sense of style',
+  'Your glasses',
+  'You always want to have at least one piece of my clothing',
+  'Your hair - all the colours and different styles',
+  'You always seem happy to speak to me',
+  'All the faces you make',
+  'You share all your problems with me',
+  'Your height',
+  'You don’t care about material things',
+  'We got to spend your birthday together',
+  'You’re older than me but you’re still my child and mini Timi!',
+  'You acknowledge the effort I put in',
+  'We can sleep otp together',
+  'You appreciate when i’m lovey dovey',
+  'Your small hands',
+  'You always put your legs on me',
+  'We hold hands whenever possible',
+  'You make me work for things and keep me entertained',
+  'You follow me towards my home before going home yourself',
+  'You involve me in you and Lierge’s conversations so I’m not left out',
+  'You’re soft with me',
+  'You’re already better than me at chess',
+  'You let me know how you’re feeling more often',
+  'You’ll stay on the phone with me regardless of what you’re doing',
+  'You gave me reassurance when I thought your mum didn’t like me',
+  'You guide me in how I can improve for you',
+  'You give me an escape when life gets hard',
+  'You always share your vision for your bedroom with me',
+  'You come to me for advice',
+  'You can baby me',
+  'You’re the most beautiful girl I know',
+  'You only see me when you feel like you look good (You care and value my opinion)',
+  'You let me try to teach you maths',
+  'You put my pleasure before your own',
+  'You communicate clearly more',
+  'You smell great',
+  'There’s so much to know about you as a person',
+  'You’re kind when talking to Tomi or my cousins on call',
+  'We dance together on facetime',
+  'You support all aspects if my life - music, school, games',
+  'Your music taste (You made the bowling ball grow on me a lil!)',
+  'You don’t judge me for being weird or nerdy',
+  'You’re my best and closest friend',
+  "I can’t see myself being with anyone else"
+
+  // ... Add up to 100 reasons
+  ];
+
+  const reasonsList = document.getElementById("reasonsList");
+  const toggleBtn = document.getElementById("toggleReasonsBtn");
+  const container = document.getElementById("reasonsContainer");
+
+  let reasonsExpanded = false;
+
+  // Initialize with first 10 reasons
+  reasonsList.innerHTML = allReasons.slice(0, 10)
+          .map(reason => `<li>${reason}</li>`)
+          .join("");
+  container.style.maxHeight = `${reasonsList.scrollHeight}px`;
+
+  toggleBtn.addEventListener("click", () => {
+    reasonsExpanded = !reasonsExpanded;
+
+    if (reasonsExpanded) {
+      reasonsList.innerHTML = allReasons
+              .map(reason => `<li>${reason}</li>`)
+              .join("");
+      // Add extra pixels to account for padding/margins
+      container.style.maxHeight = `${reasonsList.scrollHeight + 16}px`;
+      toggleBtn.textContent = "Show Less";
+    } else {
+      const tempList = document.createElement('ul');
+      tempList.innerHTML = allReasons.slice(0, 10)
+              .map(reason => `<li>${reason}</li>`)
+              .join("");
+      document.body.appendChild(tempList);
+      const shortHeight = tempList.scrollHeight;
+      document.body.removeChild(tempList);
+
+      reasonsList.innerHTML = allReasons.slice(0, 10)
+              .map(reason => `<li>${reason}</li>`)
+              .join("");
+      // Add extra pixels here too
+      container.style.maxHeight = `${shortHeight + 16}px`;
+      toggleBtn.textContent = "Show All 💙";
+    }
   });
+
+  // Initialize with first 10 reasons
+  reasonsList.innerHTML = allReasons.slice(0, 10)
+          .map(reason => `<li>${reason}</li>`)
+          .join("");
+  container.style.maxHeight = `${reasonsList.scrollHeight + 16}px`;
+
+  document.querySelectorAll('.tip-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const container = header.parentElement;
+      const content = container.querySelector('.tip-content');
+      const icon = container.querySelector('.toggle-icon');
+
+      content.classList.toggle('expanded');
+      content.classList.toggle('hidden-text');
+
+      if (content.classList.contains('expanded')) {
+        icon.textContent = '-';
+      } else {
+        icon.textContent = '+';
+      }
+    });
+  });
+
+
+
 </script>
 </body>
 </html>
